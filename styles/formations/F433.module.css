@@ -1,0 +1,71 @@
+.teamsheet{
+    display: grid;
+    margin: auto;
+    margin-top: 80px;
+    margin-left: 16px;
+    width: 380px;
+    height: 500px;
+    justify-content: center;
+    grid-template-columns: 50px 50px 50px 50px 50px;
+    grid-template-rows: auto auto auto 80px;
+    grid-template-areas: 
+    " first . second . third "
+    " fourth . fifth . sixth"
+    "seventh eight . ninth tenth"
+    ". . eleventh . .";
+    gap: 0;
+}
+
+#first{
+    grid-area: first;
+    margin: 30px 0 0 -50px;
+}
+
+#second{
+    grid-area: second;
+    margin-top: 0px;
+}
+
+#third{
+    grid-area: third;
+    margin: 30px 0 0 50px;
+}
+
+#fourth{
+    grid-area: fourth;
+}
+
+#fifth{
+    grid-area: fifth;
+    margin-top: 40px;
+}
+
+#sixth{
+    grid-area: sixth;
+}
+
+#seventh{
+    grid-area: seventh;
+    margin-left: -50px;
+    margin-top: -20px;
+}
+
+#eight{
+    grid-area: eight;
+}
+
+#ninth{
+    grid-area: ninth;
+}
+
+#tenth{
+    grid-area: tenth;
+    margin-left: 50px;
+    margin-top: -20px;
+}
+
+#eleventh{
+    grid-area: eleventh;
+    margin-top: 20px;
+    background-color: aliceblue;
+}

@@ -1,0 +1,75 @@
+.body {
+    display: flex;
+    justify-content: center;
+}
+
+.playerBoard{
+    position: absolute;/* stacking pitch lines and player board */
+    height: 600px;
+    width: 400px;
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+.pitchLines{
+    height: 600px;
+    width: 400px;
+}
+/* Pitch */
+
+.pitch{
+    display: grid;
+    grid-template-areas: 'main'; /* stacking pitch lines and player board */
+    margin: 20px 0;
+    border: 1px solid black;
+    padding: 0;
+    height: 600px;
+    width: 400px;
+}
+
+.halfPitch, .halfPitchI{
+    border: 2px solid white;
+    background-color: rgb(34, 240, 34);
+    width: 400px;
+    height: 300px;
+}
+
+.halfPitchI{
+    transform: rotate(180deg);
+}
+
+.semiCircle{
+    height: 60px;
+    width: 120px;
+    border-radius: 0 0 90px 90px;
+    border: 2px solid white;
+    border-top: none;
+    margin: auto;
+}
+
+.defHalf{
+    height: 100px;
+    width: 190px;
+    border: 2px solid white;
+    margin: auto;
+    margin-top: 138px;
+}
+
+.defHalfSemiCircle{
+    height: 30px;
+    width: 60px;
+    position: relative;
+    border: 2px solid white;
+    border-bottom: none;
+    top: -30px;
+    margin: auto;
+    border-radius: 60px 60px 0 0;
+}
+
+
+.eighteenBox{
+    height: 50px;
+    width: 100px;
+    border: 2px solid white;
+    margin: auto;
+    margin-top: 20px;
+}

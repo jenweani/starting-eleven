@@ -1,0 +1,10 @@
+.header{
+    padding: auto;
+    height: 45px;
+    background-color: black;
+}
+.title{
+    margin: 0 ;
+    padding: 10px 20px ;
+    color: aliceblue;
+}
