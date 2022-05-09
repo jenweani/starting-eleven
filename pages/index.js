@@ -11,8 +11,12 @@ import fourTwoThreeOne from '../styles/formations/F4231.module.css'
 import fourTwoTwoTwo from '../styles/formations/F4222.module.css'
 import threeFourThree from '../styles/formations/F343.module.css'
 import threeFiveTwo from '../styles/formations/F352.module.css'
+import { saveAsJpeg } from 'save-html-as-image'
 
-function PitchBody({gkJerseyColor, jerseyColor}){
+function PitchBody(){
+
+  const [jerseyColor, setJerseyColor] = useState('#ffffff')
+  const [gkJerseyColor, setGkJerseyColor] = useState('#808080')
 
   const [formation, setFormation] = useState(fourThreeThree)
 
@@ -47,20 +51,23 @@ function PitchBody({gkJerseyColor, jerseyColor}){
   }
 
   return (
-    <div className={styles.pitchBody}>
-      <div className={styles.dropdownBox}>
-        <p className={styles.dropdownTitle}>Pick a formation</p>
-        <select onChange={onchange} className={styles.dropdown} name="formation" id="formation">
-          <option value="4-3-3">4-3-3</option>
-          <option value="4-2-2-2">4-2-2-2</option>
-          <option value="4-2-3-1">4-2-3-1</option>
-          <option value="4-4-2">4-4-2</option>
-          <option value="4-5-1">4-5-1</option>
-          <option value="3-5-2">3-5-2</option>
-          <option value="3-4-3">3-4-3</option>
-        </select>
+    <div>
+      <SelectColor onChangeJersey={(color) => setJerseyColor(color)} onChangeGkJersey={(color) => setGkJerseyColor(color)}/>
+      <div className={styles.pitchBody}>
+        <div className={styles.dropdownBox}>
+          <p className={styles.dropdownTitle}>Pick a formation</p>
+          <select onChange={onchange} className={styles.dropdown} name="formation" id="formation">
+            <option value="4-3-3">4-3-3</option>
+            <option value="4-2-2-2">4-2-2-2</option>
+            <option value="4-2-3-1">4-2-3-1</option>
+            <option value="4-4-2">4-4-2</option>
+            <option value="4-5-1">4-5-1</option>
+            <option value="3-5-2">3-5-2</option>
+            <option value="3-4-3">3-4-3</option>
+          </select>
+        </div>
+        <Pitch formation={formation} gkJerseyColor={gkJerseyColor} jerseyColor={jerseyColor}></Pitch>
       </div>
-      <Pitch formation={formation} gkJerseyColor={gkJerseyColor} jerseyColor={jerseyColor}></Pitch>
     </div>
   )
 }
@@ -70,24 +77,20 @@ function SelectColor({onChangeJersey, onChangeGkJersey}){
     <div>
        <div>
           <p>Choose your team's jersey color: 
-            <span>
-              <div id="selectJerseyColor">
+            <span id="selectJerseyColor">
                 <span className='colorSelectIcon' onClick={() => {onChangeJersey("#ff0000")}} style={{backgroundColor:"#ff0000"}}></span>
                 <span className='colorSelectIcon' onClick={() => {onChangeJersey("#0000FF")}} style={{backgroundColor:"#0000FF"}} ></span>
                 <span className='colorSelectIcon' onClick={() => {onChangeJersey("#ffffff")}} style={{backgroundColor:"#ffffff"}}></span>
                 <span className='colorSelectIcon' onClick={() => {onChangeJersey("#000000")}} style={{backgroundColor:"#000000"}}></span>
-              </div>
             </span>
           </p>
 
           <p>Choose your GK's jersey color: 
-            <span>
-              <div id="selectJerseyColor">
+            <span id="selectJerseyColor">
                 <span className='colorSelectIcon' onClick={() => {onChangeGkJersey("#4B0082")}} style={{backgroundColor:"#4B0082"}}></span>
                 <span className='colorSelectIcon' onClick={() => {onChangeGkJersey("#FF4500")}} style={{backgroundColor:"#FF4500"}}></span>
                 <span className='colorSelectIcon' onClick={() => onChangeGkJersey("#FF1493")} style={{backgroundColor:"#FF1493"}}></span>
                 <span className='colorSelectIcon' onClick={() => onChangeGkJersey("#808080")} style={{backgroundColor:"#808080"}}></span>
-              </div>
             </span>
           </p>
 
@@ -110,14 +113,14 @@ function SelectColor({onChangeJersey, onChangeGkJersey}){
               }
             `}
           </style>
-        </div>
+       </div>
     </div>
   )
 }
 
 export default function Home() {
-  const [jerseyColor, setJerseyColor] = useState('#ffffff')
-  const [gkJerseyColor, setGkJerseyColor] = useState('#808080')
+  
+  const node = document.getElementById('pitch')
   
   return (
     <div>
@@ -130,8 +133,13 @@ export default function Home() {
       <main className={styles.body}>
         <Navbar></Navbar>
         <p className={styles.title}>Create your Dream Team Sheet</p>
-        <SelectColor onChangeJersey={(color) => setJerseyColor(color)} onChangeGkJersey={(color) => setGkJerseyColor(color)}/>
-        <PitchBody jerseyColor={jerseyColor} gkJerseyColor={gkJerseyColor}/>
+        <PitchBody />
+        <button onClick={()=>{
+          saveAsJpeg(
+            node,
+            { filename: 'Lineup', printDate: true },
+            )
+          }}>Download Lineup</button>
       </main>
     </div>
   )

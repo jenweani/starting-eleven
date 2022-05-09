@@ -18,7 +18,7 @@ function HalfPitch ({ position }) {
 export default function ({formation, gkJerseyColor, jerseyColor}) {
     return (
         <div className={styles.body}>
-            <div className={styles.pitch}>
+            <div id='pitch' className={styles.pitch}>
                 <div className={styles.pitchLines}>
                     <HalfPitch position={2}/>
                     <HalfPitch />
