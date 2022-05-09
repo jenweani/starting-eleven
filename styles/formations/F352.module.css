@@ -2,12 +2,13 @@
     display: grid;
     margin: auto;
     margin-top: 80px;
-    margin-left: 16px;
-    width: 380px;
-    height: 500px;
+    margin-left: 20px;
+    width: 450px;
+    height: 580px;
+    align-items: center;
     justify-content: center;
     grid-template-columns: 50px 50px 50px 50px 50px;
-    grid-template-rows: auto 100px auto 80px;
+    grid-template-rows: auto 100px auto 60px;
     grid-template-areas: 
     " . first . second .  "
     " third fourth fifth  sixth seventh"
@@ -36,7 +37,7 @@
 
 #fifth{
     grid-area: fifth;
-    margin: -20px 0 0 0;
+    margin: -90px 0 0 0;
 }
 
 #sixth{
@@ -64,5 +65,4 @@
 #eleventh{
     grid-area: eleventh;
     margin-top: 20px;
-    background-color: aliceblue;
 }

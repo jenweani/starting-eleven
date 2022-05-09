@@ -1,7 +1,64 @@
 
-.player{
-    height: 40px;
-    width: 40px;
-    background-color: red;
+.playerContainer{
+    height: 60px;
+    width: 60px;
+    background-color: transparent;
     margin: 5px 0;
+}
+
+.playerBox{
+    height: 60px;
+    width: 60px;
+    background-color: transparent;
+}
+.playerName{
+    height: 18px;
+    margin-top: 2px;
+    border-radius: 3px;
+    background-color: black;
+    font-size: 10px;
+    padding: 2px 0 0 0;
+    color: white;
+    text-align: center;
+}
+
+.player{
+    display: flex;
+    justify-content: center;
+    height: 45px;
+    width: 28px;
+    background-color: white;
+    margin: auto;
+    border-radius: 10px 10px 2px 2px;
+}
+
+.player::before{
+    content: '';
+    height: 20px;
+    width: 12px;
+    margin-top: 2px;
+    margin-left: -30px;
+    background-color: white;
+    position: absolute;
+    transform: rotate(55deg);
+    border-radius: 2px;
+}
+
+.player::after{
+    content: '';
+    height: 20px;
+    width: 12px;
+    margin-top: 2px;
+    margin-left: 30px;
+    background-color: white;
+    position: absolute;
+    transform: rotate(-55deg);
+    border-radius: 2px;
+}
+
+.playerNo{
+    position: relative;
+    margin: auto;
+    font-size: 12px;
+    font-weight: bold;
 }

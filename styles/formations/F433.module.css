@@ -2,12 +2,12 @@
     display: grid;
     margin: auto;
     margin-top: 80px;
-    margin-left: 16px;
-    width: 380px;
-    height: 500px;
+    margin-left: 20px;
+    width: 450px;
+    height: 580px;
     justify-content: center;
     grid-template-columns: 50px 50px 50px 50px 50px;
-    grid-template-rows: auto auto auto 80px;
+    grid-template-rows: auto auto auto 60px;
     grid-template-areas: 
     " first . second . third "
     " fourth . fifth . sixth"
@@ -67,5 +67,4 @@
 #eleventh{
     grid-area: eleventh;
     margin-top: 20px;
-    background-color: aliceblue;
 }

@@ -15,7 +15,7 @@ function HalfPitch ({ position }) {
 }
 
 // exporting Pitch Component
-export default function ({formation}) {
+export default function ({formation, gkJerseyColor, jerseyColor}) {
     return (
         <div className={styles.body}>
             <div className={styles.pitch}>
@@ -24,7 +24,7 @@ export default function ({formation}) {
                     <HalfPitch />
                 </div>
                 <div className={styles.playerBoard}>
-                    <TeamSheet formation={formation}/>
+                    <TeamSheet formation={formation} shirtColor={jerseyColor} gkShirtColor={gkJerseyColor}/>
                 </div>
             </div>
         </div>

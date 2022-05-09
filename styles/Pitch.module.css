@@ -5,14 +5,15 @@
 
 .playerBoard{
     position: absolute;/* stacking pitch lines and player board */
-    height: 600px;
-    width: 400px;
+    height: 700px;
+    width: 500px;
     background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
 }
 
 .pitchLines{
-    height: 600px;
-    width: 400px;
+    height: 700px;
+    width: 500px;
 }
 /* Pitch */
 
@@ -20,17 +21,17 @@
     display: grid;
     grid-template-areas: 'main'; /* stacking pitch lines and player board */
     margin: 20px 0;
-    border: 1px solid black;
     padding: 0;
-    height: 600px;
-    width: 400px;
+    height: 700px;
+    width: 500px;
 }
 
 .halfPitch, .halfPitchI{
-    border: 2px solid white;
+    border-top: 2px solid white;
     background-color: rgb(34, 240, 34);
-    width: 400px;
-    height: 300px;
+    width: 500px;
+    height: 350px;
+    border-radius: 0 0 10px 10px;
 }
 
 .halfPitchI{
@@ -38,8 +39,8 @@
 }
 
 .semiCircle{
-    height: 60px;
-    width: 120px;
+    height: 65px;
+    width: 135px;
     border-radius: 0 0 90px 90px;
     border: 2px solid white;
     border-top: none;
@@ -47,11 +48,11 @@
 }
 
 .defHalf{
+    margin: 183px auto 0 auto;
     height: 100px;
     width: 190px;
     border: 2px solid white;
-    margin: auto;
-    margin-top: 138px;
+    bottom: 1px;
 }
 
 .defHalfSemiCircle{
@@ -70,6 +71,5 @@
     height: 50px;
     width: 100px;
     border: 2px solid white;
-    margin: auto;
-    margin-top: 20px;
+    margin: 18px auto 0 auto;
 }

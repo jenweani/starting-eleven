@@ -12,7 +12,7 @@ import fourTwoTwoTwo from '../styles/formations/F4222.module.css'
 import threeFourThree from '../styles/formations/F343.module.css'
 import threeFiveTwo from '../styles/formations/F352.module.css'
 
-function PitchBody(){
+function PitchBody({gkJerseyColor, jerseyColor}){
 
   const [formation, setFormation] = useState(fourThreeThree)
 
@@ -60,12 +60,65 @@ function PitchBody(){
           <option value="3-4-3">3-4-3</option>
         </select>
       </div>
-      <Pitch formation={formation}></Pitch>
+      <Pitch formation={formation} gkJerseyColor={gkJerseyColor} jerseyColor={jerseyColor}></Pitch>
+    </div>
+  )
+}
+
+function SelectColor({onChangeJersey, onChangeGkJersey}){
+  return(
+    <div>
+       <div>
+          <p>Choose your team's jersey color: 
+            <span>
+              <div id="selectJerseyColor">
+                <span className='colorSelectIcon' onClick={() => {onChangeJersey("#ff0000")}} style={{backgroundColor:"#ff0000"}}></span>
+                <span className='colorSelectIcon' onClick={() => {onChangeJersey("#0000FF")}} style={{backgroundColor:"#0000FF"}} ></span>
+                <span className='colorSelectIcon' onClick={() => {onChangeJersey("#ffffff")}} style={{backgroundColor:"#ffffff"}}></span>
+                <span className='colorSelectIcon' onClick={() => {onChangeJersey("#000000")}} style={{backgroundColor:"#000000"}}></span>
+              </div>
+            </span>
+          </p>
+
+          <p>Choose your GK's jersey color: 
+            <span>
+              <div id="selectJerseyColor">
+                <span className='colorSelectIcon' onClick={() => {onChangeGkJersey("#4B0082")}} style={{backgroundColor:"#4B0082"}}></span>
+                <span className='colorSelectIcon' onClick={() => {onChangeGkJersey("#FF4500")}} style={{backgroundColor:"#FF4500"}}></span>
+                <span className='colorSelectIcon' onClick={() => onChangeGkJersey("#FF1493")} style={{backgroundColor:"#FF1493"}}></span>
+                <span className='colorSelectIcon' onClick={() => onChangeGkJersey("#808080")} style={{backgroundColor:"#808080"}}></span>
+              </div>
+            </span>
+          </p>
+
+          <style jsx>
+            {`
+              #selectJerseyColor{
+                display: inline;
+                margin: 0 0 0 10px;
+                width: 100px;
+              }
+              .colorSelectIcon{
+                display: inline-block;
+                width: 20px;
+                height: 20px;
+                background-color: #ffffff;
+                border-radius: 50%;
+                margin: 0 10px 0 10px;
+                border: 1px solid rgba(00,00,00,01);
+                cursor: pointer;
+              }
+            `}
+          </style>
+        </div>
     </div>
   )
 }
 
 export default function Home() {
+  const [jerseyColor, setJerseyColor] = useState('#ffffff')
+  const [gkJerseyColor, setGkJerseyColor] = useState('#808080')
+  
   return (
     <div>
       <Head>
@@ -77,7 +130,8 @@ export default function Home() {
       <main className={styles.body}>
         <Navbar></Navbar>
         <p className={styles.title}>Create your Dream Team Sheet</p>
-        <PitchBody/>
+        <SelectColor onChangeJersey={(color) => setJerseyColor(color)} onChangeGkJersey={(color) => setGkJerseyColor(color)}/>
+        <PitchBody jerseyColor={jerseyColor} gkJerseyColor={gkJerseyColor}/>
       </main>
     </div>
   )
