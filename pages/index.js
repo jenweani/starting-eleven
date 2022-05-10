@@ -11,7 +11,7 @@ import fourTwoThreeOne from '../styles/formations/F4231.module.css'
 import fourTwoTwoTwo from '../styles/formations/F4222.module.css'
 import threeFourThree from '../styles/formations/F343.module.css'
 import threeFiveTwo from '../styles/formations/F352.module.css'
-import { saveAsJpeg } from 'save-html-as-image'
+
 
 function PitchBody(){
 
@@ -19,6 +19,8 @@ function PitchBody(){
   const [gkJerseyColor, setGkJerseyColor] = useState('#808080')
 
   const [formation, setFormation] = useState(fourThreeThree)
+
+  
 
   function onchange(e){
     const value =  e.target.value
@@ -66,7 +68,9 @@ function PitchBody(){
             <option value="3-4-3">3-4-3</option>
           </select>
         </div>
-        <Pitch formation={formation} gkJerseyColor={gkJerseyColor} jerseyColor={jerseyColor}></Pitch>
+        <div>
+          <Pitch formation={formation} gkJerseyColor={gkJerseyColor} jerseyColor={jerseyColor}></Pitch>
+        </div>
       </div>
     </div>
   )
@@ -120,7 +124,7 @@ function SelectColor({onChangeJersey, onChangeGkJersey}){
 
 export default function Home() {
   
-  const node = document.getElementById('pitch')
+  
   
   return (
     <div>
@@ -134,12 +138,6 @@ export default function Home() {
         <Navbar></Navbar>
         <p className={styles.title}>Create your Dream Team Sheet</p>
         <PitchBody />
-        <button onClick={()=>{
-          saveAsJpeg(
-            node,
-            { filename: 'Lineup', printDate: true },
-            )
-          }}>Download Lineup</button>
       </main>
     </div>
   )
